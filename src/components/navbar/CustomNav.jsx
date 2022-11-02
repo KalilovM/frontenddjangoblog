@@ -3,6 +3,7 @@ import styles from "./CustomNav.module.scss";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 export default function CustomNav() {
   return (
@@ -16,10 +17,10 @@ export default function CustomNav() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Blog</Nav.Link>
-            <Nav.Link href="#action2">Courses</Nav.Link>
-            <Nav.Link href="#action2">Profile</Nav.Link>
+            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link" to="/">Blog</Link>
+            <Link className="nav-link" to="/">Courses</Link>
+            <Link className="nav-link" to="/auth">Profile</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
