@@ -20,7 +20,9 @@ export default function CustomNav() {
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="/">Blog</Link>
             <Link className="nav-link" to="/">Courses</Link>
-            <Link className="nav-link" to="/auth">Profile</Link>
+            {localStorage.getItem("access")?<Link className="nav-link" to="/profile">Profile</Link>:<Link className="nav-link" to="/auth">Profile</Link>}
+
+            {/* TODO Make navbar more flexible using objects */}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import styles from "./Avatar.module.scss";
 
 
-export default function Avatar() {
+export default function Avatar(props) {
   return (
     <Container className="mt-lg-5 mt-md-4 mt-sm-2 mt-2">
       <Row>
@@ -26,7 +26,7 @@ export default function Avatar() {
               fill="#886451"
             />
             <text
-              text-anchor="middle"
+              textAnchor="middle"
               fill="white"
               x="75.0"
               y="93.0"
@@ -41,7 +41,7 @@ export default function Avatar() {
           </svg>
         </Col>
         <Col className="col-auto flex-column d-flex justify-content-center">
-          <h3>Marlen Kalilov</h3>
+          <h3>{props.first_name} {props.last_name}</h3>
           <a href="certs/">Мои сертификаты</a>
         </Col>
       </Row>
