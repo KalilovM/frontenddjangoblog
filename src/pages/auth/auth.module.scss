@@ -1,0 +1,54 @@
+@import "src/constants/scss/colors";
+
+.container {
+  margin: 25px auto 0;
+  box-sizing: border-box;
+  padding: 25px 50px ;
+  background: $container-color;
+  display: flex;
+  flex-direction: column;
+  max-width:450px;
+  border-radius: 15px;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $text-color;
+
+  }
+
+  input {
+    margin-bottom: 30px;
+    padding: 4px 8px;
+    height: 30px;
+    outline: none;
+    font-family: "JetBrains Mono NL", source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-size: 16px;
+    border: 1px solid $primary-color;
+    border-radius: 6px;
+    background: transparent;
+    color: $text-color;
+
+  }
+  .submit_input {
+    cursor: pointer;
+    height: 40px;
+    transition: .2s ease-in-out;
+    font-weight: bold;
+    &:hover{
+      background: $primary-color;
+      color:$container-color;
+    }
+  }
+}
+
+.small_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color:$primary-color;
+    font-weight: bold;
+  }
+}
