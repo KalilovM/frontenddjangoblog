@@ -14,7 +14,6 @@ export const InstanceApi = axios.create({
 
 InstanceApi.interceptors.request.use(async (config) => {
     const access = localStorage.getItem("access")
-    console.log(access)
     if (access) {
         config.headers = {
             ...config.headers,

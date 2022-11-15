@@ -16,6 +16,7 @@ function Auth(props) {
     }
     return (<>
             <form onSubmit={handleSubmit(submit)} className={styles.container}>
+                <h1>Логин</h1>
                 <label htmlFor="username">Username</label>
                 <input type="text" id="username" autoComplete="username" {...register("username")}/>
                 <label htmlFor="password">Password</label>

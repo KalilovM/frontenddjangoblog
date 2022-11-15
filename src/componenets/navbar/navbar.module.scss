@@ -1,0 +1,73 @@
+@import "/src/constants/scss/colors";
+
+.wrapper {
+  background: #00A5E0;
+  margin-bottom: 100px;
+  .container {
+    padding: 10px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      a {
+        font-size: 16px;
+        color: $container-color;
+        text-decoration: none;
+        transition: .3s ease-in-out;
+      }
+      li {
+        transition: .2s ease-in-out;
+      }
+    }
+
+    .navbar_items > li {
+      padding-right: 15px;
+
+      a:hover {
+        color: darken($container-color, 10%)
+      }
+    }
+
+    .active_buttons {
+      a {
+        padding: 8px 12px;
+        margin-left: 10px;
+        border-radius: 8px;
+      }
+      .auth {
+        border: 2px solid $container-color;
+        &:hover{
+          background: $container-color;
+          li {
+            color:$primary-color ;
+          }
+        }
+        li {
+          color: $container-color;
+        }
+      }
+      .signup {
+        border: 2px solid $container-color;
+        background: $container-color;
+        &:hover{
+          border: 2px solid $container-color;
+          background: transparent;
+          li {
+            color: $container-color;
+          }
+        }
+        li {
+          color:$primary-color ;
+        }
+      }
+    }
+  }
+}
