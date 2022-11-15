@@ -2,8 +2,10 @@ import React from 'react';
 import {InstanceApi} from "../../sevices/axios/axios";
 
 function Navbar(props) {
-    InstanceApi.get("").then((res) => {
-        console.log(res)
+    React.useEffect(()=> {
+        InstanceApi.get('/').then((res) => {
+            console.log(res)
+        })
     })
     return (
         <div>

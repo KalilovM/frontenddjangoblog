@@ -1,11 +1,11 @@
 import {Instance} from "./axios";
 
 
-export const refreshToken = () => {
+export const refreshToken = async() => {
     const refresh = localStorage.getItem("refresh")
-    Instance.post("token/refresh/",{
+    const token = await Instance.post("token/refresh/",{
         "refresh":refresh
-    }).then((access) => {
-        return access
     })
+    return token.data.access
+
 }

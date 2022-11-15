@@ -2,11 +2,17 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {Link} from "react-router-dom";
 import styles from "./auth.module.scss"
+import {Instance} from "../../sevices/axios/axios";
 
 function Auth(props) {
+    // todo не позволять нажать на кнопку если поля не заполнены
     const {register, handleSubmit} = useForm()
-    const submit = (res) => {
-        console.log(res)
+    const submit = (response) => {
+        Instance.post("token/create/", response).then((result) => {
+            console.log(result.data)
+            localStorage.setItem("access", result.data.access)
+            localStorage.setItem("refresh", result.data.refresh)
+        })
     }
     return (<>
             <form onSubmit={handleSubmit(submit)} className={styles.container}>

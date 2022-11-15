@@ -1,22 +1,43 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import styles from "./auth.module.scss"
+import {Instance} from "../../sevices/axios/axios";
 
 function Signup(props) {
+    // todo не позволять нажать на кнопку если поля не заполнены
+
     const {register, handleSubmit} = useForm()
-    const submit = (res) => {
-        console.log(res)
+    const [sign, setSign] = React.useState(false)
+    const naviagate = useNavigate()
+    const submit = (response) => {
+        Instance.post("users/", response).then((result) => {
+            Instance.post("token/create/", {
+                username: result.data.username,
+                password: response.password
+            }).then((res) => {
+                localStorage.setItem("access", res.data.access)
+                localStorage.setItem("refresh", res.data.refresh)
+                setSign(true)
+            })
+        })
     }
+
+    React.useEffect(() => {
+        if (localStorage.getItem("access")){
+            naviagate("/")
+        }
+    },[sign])
+
     return (<>
-                <form
-                    onSubmit={handleSubmit(submit)}
-                    className={styles.container}
-                >
-                    <h1>Регистрация</h1>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        type="text"
+            <form
+                onSubmit={handleSubmit(submit)}
+                className={styles.container}
+            >
+                <h1>Регистрация</h1>
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
                         id="username"
                         autoComplete="username" {...register("username")}/>
                     <label htmlFor="first_name">First name</label>

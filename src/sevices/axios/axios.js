@@ -3,23 +3,26 @@ import {refreshToken} from "./refresh";
 
 export const Instance = axios.create({
     baseURL: "http://localhost:8000/api/",
+    headers: {
+
+    }
 })
 
 export const InstanceApi = axios.create({
     baseURL: "http://localhost:8000/api/",
 })
 
-InstanceApi.interceptors.request.use((config) => {
+InstanceApi.interceptors.request.use(async (config) => {
     const access = localStorage.getItem("access")
-    if (!access) {
-        localStorage.removeItem("access")
-
+    console.log(access)
+    if (access) {
+        config.headers = {
+            ...config.headers,
+            authorization:`Bearer ${access}`
+        }
     }
-    config.headers = {
-        authorization:`Bearer ${access}`
-    }
 
-    return axios(config)
+    return config
 
 },(error) => {
     Promise.reject(error)
@@ -27,21 +30,26 @@ InstanceApi.interceptors.request.use((config) => {
 
 InstanceApi.interceptors.response.use((response) => {
     return response
-}, (err) => {
-    console.log(err)
-    if (err?.response.status === 401) {
+}, async (err) => {
+    const config = err?.config
+    if (err?.response?.status === 401 && !config?.send) {
+        config.send = true
+
+        const access = await refreshToken()
+        if (access) {
+            localStorage.setItem("access", access)
+            config.headers = {
+                ...config.headers,
+                authorization: `Bearer ${access}`
+            }
+        }
+
         const refresh = localStorage.getItem("refresh")
         if (!refresh){
             window.location.href = "/auth"
         }
-        const access = refreshToken()
-        if (!access){
-            localStorage.removeItem("access")
-            localStorage.removeItem("refresh")
-        }
-        err.config.headers = {
-            authorization: `Bearer ${access}`
-        }
 
+        return axios(config)
     }
+    return Promise.reject(err)
 })
