@@ -1,0 +1,40 @@
+@import "src/constants/scss/colors";
+
+
+.bottom_bar {
+  position: sticky;
+  border-top: 2px solid $primary-color;
+  bottom: 0;
+  background: $container-color;
+  z-index: 1;
+  padding: 16px 20px;
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.active {
+  background: transparent;
+  border: 1px solid $primary-color;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: $text-color;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: $primary-color;
+    color:$container-color;
+  }
+}
+
+.disabled {
+  background: transparent;
+  border: 1px solid $text-color;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: $text-color;
+  cursor: not-allowed;
+}

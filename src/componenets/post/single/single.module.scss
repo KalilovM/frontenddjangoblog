@@ -1,0 +1,31 @@
+@import 'src/constants/scss/colors';
+
+.wrapper {
+  background:$container-color ;
+  max-width: 1024px;
+  box-sizing: content-box;
+  padding: 20px 25px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $primary-color;
+  color: $text-color;
+  .heading {
+    margin: 20px 0 ;
+  }
+
+  .image_container {
+    margin-bottom: 30px;
+    width: 100%;
+    min-height: 200px;
+    max-height: 450px;
+    display: flex;
+    justify-content: center;
+    background: $secondary-color;
+    img {
+      margin:0 auto;
+      max-width: 760px;
+      height: 100%;
+    }
+  }
+}

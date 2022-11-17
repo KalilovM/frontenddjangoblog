@@ -1,0 +1,49 @@
+@import "src/constants/scss/colors";
+
+.wrapper {
+  background:$container-color ;
+  max-width: 760px;
+  box-sizing: content-box;
+  padding: 20px 25px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid $primary-color;
+  color: $text-color;
+
+  h1 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+  .cover {
+    margin-bottom: 30px;
+    width: 100%;
+    min-height: 200px;
+    max-height: 450px;
+    display: flex;
+    justify-content: center;
+    img {
+      margin:0 auto;
+      max-width: 760px;
+      height: 100%;
+    }
+  }
+  .content {
+    margin-bottom: 30px;
+  }
+
+  .link {
+    text-decoration: none;
+    background: transparent;
+    padding: 8px 10px;
+    color: $primary-color;
+    border-radius: 6px;
+    transition: .2s ease-in-out;
+    border: 1px solid $primary-color;
+    &:hover {
+      background: $primary-color;
+      color: $container-color;
+      //box-shadow: $primary-color 0 0 4px 0;
+    }
+  }
+}

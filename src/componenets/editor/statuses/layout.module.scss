@@ -1,0 +1,39 @@
+@import "src/constants/scss/colors";
+
+
+.wrapper {
+  background: $container-color;
+  height: 600px;
+  max-width: 700px;
+  border: 3px solid #3ce678;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #3ce678;
+      font-weight: bolder;
+    }
+    p {
+      color: $text-color;
+    }
+    a {
+      margin-top: 10px;
+      text-decoration: none;
+      color: $primary-color;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: #8d9091;
+      }
+    }
+  }
+}
