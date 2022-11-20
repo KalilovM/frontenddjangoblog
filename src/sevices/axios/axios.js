@@ -1,5 +1,5 @@
 import axios from "axios";
-import {refreshToken} from "./refresh";
+import { refreshToken } from "./refresh";
 
 export const Instance = axios.create({
     baseURL: "http://localhost:8000/api/",
@@ -17,13 +17,13 @@ InstanceApi.interceptors.request.use(async (config) => {
     if (access) {
         config.headers = {
             ...config.headers,
-            authorization:`Bearer ${access}`
+            authorization: `Bearer ${access}`
         }
     }
 
     return config
 
-},(error) => {
+}, (error) => {
     Promise.reject(error)
 })
 
@@ -35,17 +35,17 @@ InstanceApi.interceptors.response.use((response) => {
         config.send = true
 
         const access = await refreshToken()
+        if (!access) {
+            localStorage.removeItem("access")
+            localStorage.removeItem("refresh")
+            window.location.href = "/signup"
+        }
         if (access) {
             localStorage.setItem("access", access)
             config.headers = {
                 ...config.headers,
                 authorization: `Bearer ${access}`
             }
-        }
-
-        const refresh = localStorage.getItem("refresh")
-        if (!refresh){
-            window.location.href = "/auth"
         }
 
         return axios(config)

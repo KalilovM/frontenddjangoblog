@@ -1,8 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import success from "../../../static/img/success.png"
-import {Link} from "react-router-dom";
-
-function Success(props) {
+function Success() {
     return (
         <div>
             <img

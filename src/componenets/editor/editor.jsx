@@ -1,14 +1,14 @@
 import React from 'react';
 import EditorJS from "@editorjs/editorjs";
-import {DEFAULT_INITIAL_DATA, EDITOR_TOOLS, EDITTOR_HOLDER_ID} from "../../constants/editorjs/editorjs";
+import { DEFAULT_INITIAL_DATA, EDITOR_TOOLS, EDITTOR_HOLDER_ID } from "../../constants/editorjs/editorjs";
 import ImageTool from "@editorjs/image";
 import styles from "./editor.module.scss";
 import BottomBar from "./bottomBar/bottomBar";
-import {Instance, InstanceApi} from "../../sevices/axios/axios";
+import { Instance, InstanceApi } from "../../sevices/axios/axios";
 import Layout from "./statuses/layout";
 
 
-const Editor = (props) => {
+const Editor = () => {
     const ejInstance = React.useRef();
     const textArea = React.useRef(null)
     const [images, setImages] = React.useState([])
@@ -35,7 +35,7 @@ const Editor = (props) => {
         }
 
 
-    },[title,cover,shortDesc])
+    }, [title, cover, shortDesc])
 
 
     const initEditor = () => {
@@ -120,10 +120,10 @@ const Editor = (props) => {
 
     const SendPost = async () => {
         let formData = new FormData()
-        formData.append("title",title)
-        formData.append("content",JSON.stringify(editorData))
-        formData.append("short_content",shortDesc)
-        formData.append("cover",cover)
+        formData.append("title", title)
+        formData.append("content", JSON.stringify(editorData))
+        formData.append("short_content", shortDesc)
+        formData.append("cover", cover)
 
         await InstanceApi.post("", formData).then(() => {
             setIsSuccess(true)
@@ -132,71 +132,71 @@ const Editor = (props) => {
     }
 
     return (
-        isSuccess?
-            <Layout/>:
-        editingPage ?
-            <div className={styles.container}>
-                <section
-                    id={EDITTOR_HOLDER_ID}
-                    className={styles.content}
-                ></section>
-                <BottomBar buttons={[{onclick: Settings, name: "Перейки к следующим настройкам"}]}/>
-            </div> :
-            <div className={styles.container}>
-                <div className={styles.content}>
-                    <h2>Параметры поста</h2>
-                    <div className={styles.inputs}>
-                        <label htmlFor="title">Заголовок</label>
-                        <input
-                            className={styles.inputs_title}
-                            onChange={titleChange}
-                            value={title}
-                            type="text"
-                            name="title"
-                            id="title"
-                        />
+        isSuccess ?
+            <Layout /> :
+            editingPage ?
+                <div className={styles.container}>
+                    <section
+                        id={EDITTOR_HOLDER_ID}
+                        className={styles.content}
+                    ></section>
+                    <BottomBar buttons={[{ onclick: Settings, name: "Перейки к следующим настройкам" }]} />
+                </div> :
+                <div className={styles.container}>
+                    <div className={styles.content}>
+                        <h2>Параметры поста</h2>
+                        <div className={styles.inputs}>
+                            <label htmlFor="title">Заголовок</label>
+                            <input
+                                className={styles.inputs_title}
+                                onChange={titleChange}
+                                value={title}
+                                type="text"
+                                name="title"
+                                id="title"
+                            />
+                        </div>
+                        <div className={styles.input_image}>
+                            <label htmlFor="image">
+                                {!cover && (<><p>Изображение для превью</p>
+                                    <span>рекомендуевмое разрешение 710x400</span></>)}
+                            </label>
+                            <input
+                                className={styles.inputs_title}
+                                type="file"
+                                name="image"
+                                id="image"
+                                accept="image/*"
+                                onChange={ImageUpload}
+                            />
+                            {cover && <img
+                                src={URL.createObjectURL(cover)}
+                                alt="cover"
+                            />}
+                        </div>
+                        <div className={styles.inputs}>
+                            <label htmlFor="short_desc">Короткое превью текст
+                            </label>
+                            <textarea
+                                rows={1}
+                                value={shortDesc}
+                                onChange={AutoHeight}
+                                ref={textArea}
+                                className={styles.inputs_title}
+                                name="short_desc"
+                                id="short_desc"
+                            />
+                        </div>
                     </div>
-                    <div className={styles.input_image}>
-                        <label htmlFor="image">
-                            {!cover && (<><p>Изображение для превью</p>
-                                <span>рекомендуевмое разрешение 710x400</span></>)}
-                        </label>
-                        <input
-                            className={styles.inputs_title}
-                            type="file"
-                            name="image"
-                            id="image"
-                            accept="image/*"
-                            onChange={ImageUpload}
-                        />
-                        {cover && <img
-                            src={URL.createObjectURL(cover)}
-                            alt="cover"
-                        />}
-                    </div>
-                    <div className={styles.inputs}>
-                        <label htmlFor="short_desc">Короткое превью текст
-                        </label>
-                        <textarea
-                            rows={1}
-                            value={shortDesc}
-                            onChange={AutoHeight}
-                            ref={textArea}
-                            className={styles.inputs_title}
-                            name="short_desc"
-                            id="short_desc"
-                        />
-                    </div>
-                </div>
-                <BottomBar
-                    buttons={[{onclick: Settings, name: "Назад"}, {
-                        disabled: !activateSendButton,
-                        onclick: activateSendButton? SendPost:null,
-                        name: "Отправить на модерацию"
-                    }]}
+                    <BottomBar
+                        buttons={[{ onclick: Settings, name: "Назад" }, {
+                            disabled: !activateSendButton,
+                            onclick: activateSendButton ? SendPost : null,
+                            name: "Отправить на модерацию"
+                        }]}
 
-                />
-            </div>
+                    />
+                </div>
 
 
     );

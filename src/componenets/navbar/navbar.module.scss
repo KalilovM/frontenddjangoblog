@@ -1,7 +1,7 @@
 @import "/src/constants/scss/colors";
 
 .wrapper {
-  background: #00A5E0;
+  background: #00a5e0;
   margin-bottom: 50px;
   .container {
     padding: 10px 0;
@@ -21,10 +21,11 @@
         font-size: 16px;
         color: $container-color;
         text-decoration: none;
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
       }
       li {
-        transition: .2s ease-in-out;
+        transition: 0.2s ease-in-out;
+        user-select: none;
       }
     }
 
@@ -32,7 +33,7 @@
       padding-right: 15px;
 
       a:hover {
-        color: darken($container-color, 10%)
+        color: darken($container-color, 10%);
       }
     }
 
@@ -44,10 +45,10 @@
       }
       .auth {
         border: 2px solid $container-color;
-        &:hover{
+        &:hover {
           background: $container-color;
           li {
-            color:$primary-color ;
+            color: $primary-color;
           }
         }
         li {
@@ -57,7 +58,7 @@
       .signup {
         border: 2px solid $container-color;
         background: $container-color;
-        &:hover{
+        &:hover {
           border: 2px solid $container-color;
           background: transparent;
           li {
@@ -65,9 +66,56 @@
           }
         }
         li {
-          color:$primary-color ;
+          color: $primary-color;
         }
       }
+    }
+  }
+}
+
+.dropdown_menu {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+
+  .dropdown_content {
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    transition: 0.3s ease-in-out;
+    background: $container-color;
+    min-width: 150px;
+    z-index: 1;
+
+    a {
+      color: $text-color;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    button {
+      background: transparent;
+      outline: none;
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: none;
+      color: $text-color;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    a,
+    button {
+      transition: 0.3s ease-in-out;
+      user-select: none;
+    }
+
+    a:hover,
+    button:hover {
+      color: $primary-color;
     }
   }
 }
