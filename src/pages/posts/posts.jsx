@@ -1,27 +1,23 @@
-import React from 'react';
+import React from "react";
 import Post from "../../componenets/post/post";
-import {InstanceApi} from "../../sevices/axios/axios";
-import {useParams} from "react-router-dom";
+import { InstanceApi } from "../../services/axios/axios";
 
-function Posts(props) {
-
-    const [postsData, setPostsData] = React.useState([])
+function Posts() {
+    const [postsData, setPostsData] = React.useState([]);
     // InstanceApi.get("").then((res) => {
     //     console.log(res)
     //     setPostsData(res.data)
     // })
     React.useEffect(() => {
         InstanceApi.get("").then((res) => {
-            setPostsData(res.data)
-        })
-    }, [])
+            setPostsData(res.data);
+        });
+    }, []);
     return (
-
         <div>
             {postsData.map((item) => (
-                <Post key={item.id} {...item}/>
+                <Post key={item.id} {...item} />
             ))}
-
         </div>
     );
 }
