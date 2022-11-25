@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Avatar from "../avatar/avatar";
 import Output from "editorjs-react-renderer";
 
-function SinglePost(props) {
+function SinglePost() {
     const { id } = useParams();
     console.log(id);
     const [postData, setPostData] = React.useState(null);
