@@ -1,4 +1,94 @@
 @import "../../constants/scss/colors.scss";
-.wrapper {
+.wrapper_container {
   background: $container-color;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  border: 2px solid $primary-color;
+
+  .wrapper {
+    padding: 20px 30px;
+  }
+}
+
+.profile_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+
+  .info {
+    margin: 20px 0;
+
+    a {
+      font-size: 24px;
+      color: $primary-color;
+      text-decoration: none;
+      transition: 0.15s ease-in-out;
+
+      &:hover {
+        color: darken($primary-color, 10);
+      }
+    }
+  }
+}
+
+.tabs_wrapper {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  .tabs {
+    display: flex;
+    padding: 0 30px;
+    flex-direction: row;
+    user-select: none;
+    ul {
+      list-style: none;
+      margin-right: 45px;
+      padding: 10px 0;
+      box-sizing: border-box;
+      position: relative;
+
+      li {
+        cursor: pointer;
+        font-size: 22px;
+        color: $text-color;
+        text-transform: uppercase;
+        font-weight: bolder;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  hr {
+    border: 1px solid grey;
+  }
+}
+
+.no_content {
+  margin: 100px !important;
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.active {
+  &::after {
+    background-color: darken($primary-color, 5);
+    bottom: -3px;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  li {
+    color: $primary-color !important;
+  }
 }

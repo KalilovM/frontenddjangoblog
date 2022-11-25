@@ -8,12 +8,10 @@ class Auth {
 
   loggedIn = () => {
     this.isAuth = true;
-    console.log(this.isAuth);
   };
 
   logout = () => {
     this.isAuth = false;
-    console.log(this.isAuth);
   };
 }
 

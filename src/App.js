@@ -5,9 +5,9 @@ import Auth from "./pages/auth/auth";
 import Signup from "./pages/auth/signup";
 import Posts from "./pages/posts/posts";
 import Editor from "./componenets/editor/editor";
-import SinglePost from "./componenets/post/single/single";
 import { Profile } from "./pages/profile/profile";
 import DevTools from "mobx-react-devtools";
+import Post from "./pages/posts/Post";
 
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
                     <Route path="/create" element={<Editor />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/signup" element={<Signup />} />
-                    <Route path="/:id" element={<SinglePost />} />
+                    <Route path="/:id" element={<Post />} />
                     <Route path="/profile" element={<Profile />} />
                 </Routes>
             </div>
