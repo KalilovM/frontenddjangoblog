@@ -13,7 +13,7 @@ const PostBar = (props) => {
     InstanceApi.get(`${props.id}/`).then((res) => {
       setLiked(res.data.is_user_liked_post);
     });
-  }, [liked]);
+  }, []);
   const LikePost = () => {
     InstanceApi.put("like/", { post: props.id }).then(() => {
       InstanceApi.get(`${props.id}/`).then((res) => {

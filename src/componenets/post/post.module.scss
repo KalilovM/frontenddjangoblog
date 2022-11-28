@@ -1,7 +1,7 @@
 @import "src/constants/scss/colors";
 
 .wrapper {
-  background:$container-color ;
+  background: $container-color;
   max-width: 760px;
   box-sizing: content-box;
   padding: 20px 25px;
@@ -23,12 +23,13 @@
     display: flex;
     justify-content: center;
     img {
-      margin:0 auto;
+      margin: 0 auto;
       max-width: 760px;
       height: 100%;
     }
   }
   .content {
+    word-break: break-word;
     margin-bottom: 30px;
   }
 
@@ -38,7 +39,7 @@
     padding: 8px 10px;
     color: $primary-color;
     border-radius: 6px;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     border: 1px solid $primary-color;
     &:hover {
       background: $primary-color;

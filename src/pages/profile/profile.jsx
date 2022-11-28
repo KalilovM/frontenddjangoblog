@@ -56,7 +56,7 @@ export function Profile() {
           </div>
         </div>
         <div className={styles.wrapper_container}>
-          <div clasName={styles.wrapper}>
+          <div className={styles.wrapper}>
             <p className={styles.no_content}>Here is empty</p>
           </div>
         </div>
