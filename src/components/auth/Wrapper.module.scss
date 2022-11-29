@@ -1,0 +1,9 @@
+@import "../../../styles/colors.scss";
+.wrapper {
+  border-radius: 4px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  background-color: $background-color;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
