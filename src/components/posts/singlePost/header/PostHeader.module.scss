@@ -1,0 +1,35 @@
+@import "../../../../../styles/colors.scss";
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8125rem;
+  justify-content: left;
+  align-items: center;
+  div {
+    color: $text-color;
+  }
+}
+
+.username {
+  font-weight: 700;
+  line-height: 0.9375rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: $text-active;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  margin-left: 8px;
+  margin-right: 5px;
+
+  &:hover {
+    color: $hover-active;
+  }
+}
+
+.date {
+  font-size: 13px;
+  font-weight: 500;
+  color: $text-noactive;
+  font-size: 0.8125rem;
+  line-height: 0.9375rem;
+}

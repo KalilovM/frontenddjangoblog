@@ -1,0 +1,89 @@
+@import "../../../styles/colors.scss";
+.wrapper {
+  width: 300px;
+
+  .headerBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20px 0;
+    padding: 16px 0 12px;
+    border-bottom: 1px solid #d5dddf;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  row-gap: 8px;
+  align-items: baseline;
+
+  .title {
+    margin: 0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.0625rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #505c66;
+  }
+}
+.content {
+  padding: 24px 20px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: $text-active;
+
+  .clubsRaiting {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $text-active;
+    .clubItem {
+      display: flex;
+      align-items: center;
+      color: $text-active;
+      text-decoration: none;
+
+      .image {
+        flex: 0;
+        margin-right: 12px;
+
+        img {
+          border-radius: 3px;
+          display: block;
+          overflow: hidden;
+        }
+      }
+
+      span {
+        font-size: 0.8125rem;
+        font-weight: 700;
+        line-height: 1.125rem;
+      }
+
+      .raiting {
+        color: #cd66cd;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.footerBlock {
+  border-top: 1px solid #d5dddf;
+  margin: 0 20px 0;
+  padding: 16px 0;
+}
+
+.footerTitle {
+  color: #548eaa;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: #487284;
+  }
+}
