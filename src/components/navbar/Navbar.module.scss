@@ -1,0 +1,48 @@
+@import "../../../styles/colors.scss";
+.container {
+  display: flex;
+  justify-content:space-between;
+  ul {
+    list-style:none;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+  }
+
+
+  li {
+    a {
+      text-decoration:none;
+      transition: .3s ease-in-out;
+      color:$text-color-inactive;
+      padding:0 15px 0 0;
+    }
+
+    &:hover{
+      a {
+        color:$primary-color;
+      }
+    }
+  }
+}
+
+
+.container__right {
+  
+  svg {
+    path {
+    transition: .3s ease-in-out;
+    }
+
+    &:hover{
+      path{
+        stroke:$primary-color;
+      }
+    }  
+  }
+}
+
+.container__profile {
+  position:relative;
+}
