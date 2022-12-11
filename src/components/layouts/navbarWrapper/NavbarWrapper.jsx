@@ -1,10 +1,10 @@
-import styles from "./NavbarWrapper.module.scss"
+import styles from "./NavbarWrapper.module.scss";
 const NavbarWrapper = ({ children }) => {
   return (
     <div className={styles.wrapper}>
-      {children}
+      <div className={styles.container}>{children}</div>
     </div>
-  )
-}
+  );
+};
 
-export default NavbarWrapper
+export default NavbarWrapper;
