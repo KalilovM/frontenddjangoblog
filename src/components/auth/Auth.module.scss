@@ -1,0 +1,95 @@
+@import "../../../styles/colors.scss";
+
+.auth {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 2px solid $primary-color;
+
+  .auth__title {
+    display: flex;
+    align-items: center;
+    color: $text-color-inactive;
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 700;
+  }
+
+  .form__fields {
+    border: 0;
+    padding: 0;
+
+    .form__field {
+      margin-top: 30px;
+
+      .form__field_label {
+        line-height: 16px;
+        color: $text-color-inactive;
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        display: inline-block;
+        width: 100%;
+        vertical-align: baseline;
+      }
+      .form__field_input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid white;
+        padding: 0 14px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: white;
+        outline: none;
+        background: transparent;
+        transition: 0.3s ease-in-out;
+
+        &:focus {
+          border: 1px solid $primary-color;
+        }
+      }
+    }
+    .form__buttons {
+      margin-top: 28px;
+
+      button {
+        transition: 0.3s ease-in-out;
+        background-color: $primary-color;
+        color: $body-color;
+        width: 100%;
+        padding: 0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        border-radius: 3px;
+        border: 0;
+        line-height: 15px;
+        font-size: 15px;
+        font-weight: 500;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($primary-color, 20);
+        }
+      }
+    }
+  }
+}
+
+.auth__additional {
+  margin-top: 16px;
+  padding: 15px 0;
+  text-align: center;
+  .auth__additional_message {
+    color: $text-color-inactive;
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
+
+    .auth__additional_link {
+      color: $primary-color;
+    }
+  }
+}

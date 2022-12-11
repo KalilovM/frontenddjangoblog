@@ -1,5 +1,10 @@
+@import "../../../../styles/colors.scss";
 .wrapper {
-  width:1200px;
-  max-width:1600px;
+  border-bottom: 1px solid $border-color;
+}
+
+.container {
+  width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
