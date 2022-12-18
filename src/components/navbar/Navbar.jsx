@@ -87,7 +87,10 @@ const Navbar = () => {
                   <div className={styles.dropdown__body}>
                     <div className={styles.dropdown__header}>
                       <div className={styles.dropdown__header_container}>
-                        <Link className={styles.dropdown__auth_button} href="#">
+                        <Link
+                          className={styles.dropdown__auth_button}
+                          href="login"
+                        >
                           Login
                         </Link>
                         <Link
@@ -95,9 +98,9 @@ const Navbar = () => {
                             styles.dropdown__auth_button,
                             styles.dropdown__auth_button_primary
                           )}
-                          href="#"
+                          href="register/"
                         >
-                          Registeration
+                          Registrations
                         </Link>
                       </div>
                     </div>
