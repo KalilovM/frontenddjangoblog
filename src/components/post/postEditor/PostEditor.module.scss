@@ -1,0 +1,27 @@
+@import "styles/colors.scss";
+.wrapper {
+	max-width: 1080px;
+	margin: 100px auto;
+}
+
+.title {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	border: 2px solid $primary-color;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	textarea {
+		width: 100%;
+		outline: none;
+		background-color: $body-color;
+		border: 0px;
+		color: $text-color;
+		resize: none;
+		word-wrap: break-word;
+		white-space: break-spaces;
+	}
+}
